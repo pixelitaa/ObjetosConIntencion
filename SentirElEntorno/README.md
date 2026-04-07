@@ -24,4 +24,20 @@ else {
   Serial.println("quien apago la luz...");
 }
 
+## Esquemas de los ejercicios
+
+**Sensor de presión**
+
+<img width="782" height="756" alt="Captura de pantalla 2026-04-07 183412" src="https://github.com/user-attachments/assets/9db3b332-7935-47ac-9159-82dcc4e4e3dc" />
+
+**Sensor Ultrasonico**
+
+<img width="713" height="680" alt="Captura de pantalla 2026-04-07 183708" src="https://github.com/user-attachments/assets/39e42941-4e23-4334-8349-5665ecf3053e" />
+
+**Sensor fotosensible**
+
+<img width="739" height="645" alt="Captura de pantalla 2026-04-07 183942" src="https://github.com/user-attachments/assets/5845d3b4-58d8-4d99-adad-e0c07ad058f6" />
+
+
+
 **Ahora es tu turno!!! elige alguno de los ejercicio .ino de la carpeta y practicaremos conectar nuestro primer sensor y hacerlo interpretar información por nosotros**
