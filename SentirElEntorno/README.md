@@ -6,7 +6,7 @@ Para que nuestro diseño reaccione, primero debe entender qué tipo de informaci
 
 **El mundo digital: Binario** Imagina un interruptor. ¿En qué estados puede estar un interruptor? 0 o 1. El mundo digital tiene estos dos estados cuyas sintaxis son HIGH o LOW, o bien true o false. No dejen que esta binariedad los engañe: toda computadora procesa toneladas de información codificando millones de combinaciones de estos ceros y unos a partir de la unidad básica que es el bit.
 
-**El mundo analogico: Continuo** El mundo real es analógico: la luz no pasa de "noche" a "día" en un instante, tiene una transición. Una perilla o potenciómetro es un gran ejemplo, ya que al girarla, su posición altera en tiempo real su valor basado en la resistencia que este aplica respecto a la corriente que le proporciona nuestro microcontrolador. Este, para fines de código, tiene un valor entre 0 y 1023.
+**El mundo analógico: Continuo** El mundo real es analógico: la luz no pasa de "noche" a "día" en un instante, tiene una transición. Una perilla o potenciómetro es un gran ejemplo, ya que al girarla, su posición altera en tiempo real su valor basado en la resistencia que este aplica respecto a la corriente que le proporciona nuestro microcontrolador. Este, para fines de código, tiene un valor entre 0 y 1023.
 
 **Pinout** Este es el mapa de los pines de nuestro microcontrolador. Los pines son las entradas a las que podemos conectar distintos sensores que nos permiten darle a nuestro microcontrolador la capacidad de sentir su entorno y comunicarnos luego, mediante la comunicación serial, qué es lo que está sintiendo, ya sean datos binarios o analógicos.
 
@@ -17,20 +17,21 @@ Recordando nuestro previo ejercicio, en estricto rigor, podemos pedirle que nos 
 int intensidadLuz = analogRead(A0);
 
 if (intensidadLuz > 600) {
-  Serial.println("Brilla weona brilla");
+  Serial.println("Brilla brilla brilla");
 } 
 else {
   // ...si no se cumple la condición anterior:
-  Serial.println("quien apago la luz...");
+  Serial.println("quién apagó la luz...");
 }
 
 ## Esquemas de los ejercicios
 
-**Sensor de presión**
+**Sensor piezoeléctrico**
 
-<img width="782" height="756" alt="Captura de pantalla 2026-04-07 183412" src="https://github.com/user-attachments/assets/9db3b332-7935-47ac-9159-82dcc4e4e3dc" />
+<img width="615" height="532" alt="Captura de pantalla 2026-04-10 113407" src="https://github.com/user-attachments/assets/3a654adc-e7f7-4f20-be15-5d79b4fe354a" />
 
-**Sensor Ultrasonico**
+
+**Sensor Ultrasónico**
 
 <img width="713" height="680" alt="Captura de pantalla 2026-04-07 183708" src="https://github.com/user-attachments/assets/39e42941-4e23-4334-8349-5665ecf3053e" />
 
