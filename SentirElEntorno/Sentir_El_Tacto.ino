@@ -1,18 +1,27 @@
-// Ejercicio 2.2: El Sensor de Presión
-const int pinPresion = A3;
-int umbralFuerza = 100; // Sensibilidad del toque, valor entre 0 y 1024 la sensibilidad de este es muy variable dependiendo del sensor.
+// Ejercicio 2.2: El Sensor Piezoeléctrico
+const int pinPiezo = A3;
+int umbralVibracion = 50; // Umbral de sensibilidad para detectar el golpe
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  int fuerza = analogRead(pinPresion);
+  // Leemos el voltaje generado por el impacto en el piezo
+  int vibracion = analogRead(pinPiezo);
   
-  if (fuerza > umbralFuerza) {
-    Serial.println("ESTADO: AAAAAAAA ME DUELEEEEEE");
+  if (vibracion > umbralVibracion) {
+    // Si el impacto supera el umbral, se activa el mensaje
+    Serial.print("Vibración: ");
+    Serial.print(vibracion);
+    Serial.println(" -> ESTADO: AAAAAAAA ME DUELEEEEEE");
+    
+    // Un pequeño delay extra aquí ayuda a que no se repita el grito 
+    // demasiadas veces por un solo golpe físico
+    delay(100); 
   } else {
     Serial.println("ESTADO: estoy tan solo....");
   }
-  delay(200);
+  
+  delay(100); // Frecuencia de muestreo
 }
