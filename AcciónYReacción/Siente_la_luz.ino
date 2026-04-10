@@ -1,6 +1,7 @@
-//ejercicio 3.2: Sensor de presion + Led PWM
-const int pinPresion = A1;
-const int pinLed = 5; // Importante: debe ser un pin con PWM (como el 3, 5, 6, 9, 10, 11)
+// Ejercicio 3.2: Sensor Piezoeléctrico + Led PWM
+
+const int pinPiezo = A1; 
+const int pinLed = 5; // Pin PWM
 
 void setup() {
   Serial.begin(9600);
@@ -8,18 +9,26 @@ void setup() {
 }
 
 void loop() {
-  int fuerza = analogRead(pinPresion);
+  // Leemos la vibración o impacto del piezo (0 a 1023)
+  int vibracion = analogRead(pinPiezo);
   
-  // MAPEO: Traducimos la fuerza (0-1023) al brillo del LED (0-255)
-  int brillo = map(fuerza, 0, 1023, 0, 255);
+  // Traducimos la intensidad del golpe al brillo del LED
+  // Si el piezo es muy sensible, puedes ajustar el 1023 por un valor menor (ej. 500)
+  int brillo = map(vibracion, 0, 1023, 0, 255);
   
-  // Enviamos la intensidad al LED
+  // Aseguramos que el brillo no se pase del rango 0-255
+  brillo = constrain(brillo, 0, 255);
+
+  // Aplicamos el brillo al LED
   analogWrite(pinLed, brillo);
   
-  Serial.print("Fuerza detectada: ");
-  Serial.print(fuerza);
-  Serial.print(" -> Brillo LED: ");
-  Serial.println(brillo);
+  // Si hay una lectura significativa, la mostramos en el monitor
+  if (vibracion > 10) { 
+    Serial.print("Impacto detectado: ");
+    Serial.print(vibracion);
+    Serial.print(" -> Brillo LED: ");
+    Serial.println(brillo);
+  }
   
-  delay(30); // Pausa mínima para suavizar la respuesta
+  delay(20); // Un delay corto para captar mejor los pulsos del piezo
 }
