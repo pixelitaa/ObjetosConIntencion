@@ -1,34 +1,42 @@
-// Ejercicio 3.2: Sensor Piezoeléctrico + Led PWM
+// Ejercicio 3.2: Fotoresistor (LDR) + Led PWM + Buzzer
+// La intensidad de la luz controla el brillo del LED y el tono del Buzzer
 
-const int pinPiezo = A1; 
-const int pinLed = 5; // Pin PWM
+const int pinLDR = A1;    // Pin donde conectamos el divisor de tensión del LDR
+const int pinLed = 5;     // Pin PWM para el LED
+const int pinBuzzer = 9;  // Pin para el Buzzer (preferiblemente PWM o digital)
 
 void setup() {
   Serial.begin(9600);
   pinMode(pinLed, OUTPUT);
+  pinMode(pinBuzzer, OUTPUT);
 }
 
 void loop() {
-  // Leemos la vibración o impacto del piezo (0 a 1023)
-  int vibracion = analogRead(pinPiezo);
+  // Leemos la cantidad de luz (0 a 1023)
+  int nivelLuz = analogRead(pinLDR);
   
-  // Traducimos la intensidad del golpe al brillo del LED
-  // Si el piezo es muy sensible, puedes ajustar el 1023 por un valor menor (ej. 500)
-  int brillo = map(vibracion, 0, 1023, 0, 255);
-  
-  // Aseguramos que el brillo no se pase del rango 0-255
+  // 1. Traducimos la luz al brillo del LED (0-255)
+  int brillo = map(nivelLuz, 0, 1023, 0, 255);
   brillo = constrain(brillo, 0, 255);
-
-  // Aplicamos el brillo al LED
   analogWrite(pinLed, brillo);
+
+  // 2. Traducimos la luz a una frecuencia para el Buzzer (ej. 200Hz a 2000Hz)
+  // Si quieres que a más luz suene más agudo, usa estos valores:
+  int frecuencia = map(nivelLuz, 0, 1023, 200, 2000);
   
-  // Si hay una lectura significativa, la mostramos en el monitor
-  if (vibracion > 10) { 
-    Serial.print("Impacto detectado: ");
-    Serial.print(vibracion);
-    Serial.print(" -> Brillo LED: ");
-    Serial.println(brillo);
+  // Si hay suficiente luz, hacemos sonar el buzzer
+  if (nivelLuz > 50) { 
+    tone(pinBuzzer, frecuencia);
+    
+    // Mostramos datos en el monitor serial
+    Serial.print("Luz detectada: ");
+    Serial.print(nivelLuz);
+    Serial.print(" -> Frecuencia: ");
+    Serial.println(frecuencia);
+  } else {
+    // Si está muy oscuro, silenciamos el buzzer
+    noTone(pinBuzzer);
   }
   
-  delay(20); // Un delay corto para captar mejor los pulsos del piezo
+  delay(50); // Un delay pequeño para estabilidad
 }
