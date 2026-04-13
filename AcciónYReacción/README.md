@@ -8,13 +8,17 @@ En este ejercicio utilizaremos dos pines, en uno nuestro sensor y en otro pin co
 
 **El Servomotor: Movimiento Controlado** A diferencia de un motor común que gira sin parar, un Servomotor tipo de motor que funciona con precisión decirle exactamente en qué ángulo posicionarse (de 0° a 180°).
 
-**El LED y el PWM: Intensidad Variable** No solo podemos encender o apagar una luz. Mediante una técnica llamada PWM (Pulse Width Modulation), el microcontrolador puede simular estados intermedios, la tan aclamada "Luz tenue".
+**El LED y el PWM: Intensidad Variable** No solo podemos encender o apagar una luz. Mediante una técnica llamada PWM (Pulse Width Modulation), el microcontrolador puede simular estados intermedios, la tan aclamada "Luz tenue", estos pulsos de intensidad variable tambien pueden trasladarse a otro tipo de Outputs, por ejemplo escuchar la luz añadiendo un pequeño parlante llamado buzzer.
 
 ## Esquemas de ejercicios
 
 **Ejercicio Servomotor**
 
 <img width="791" height="571" alt="Captura de pantalla 2026-04-07 185020" src="https://github.com/user-attachments/assets/43154b9c-9bf5-461f-a68e-c2f5ef9ec8f1" />
+
+**Ejercicio LED PWM**
+
+
 
 
 **Ahora es tu turno!!! complementaremos el ejercicio numero 2 haciendo que nuestras maquinas que sienten reaccionen, elige alguno de los ejercicios .ino de la carpeta y manos la obra :)**
