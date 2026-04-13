@@ -1,3 +1,4 @@
+
 # Acción y Reacción
 Un diseño inteligente es aquel que reacciona. Aquí cerramos el bucle: el dato recolectado se convierte en una acción física. Exploramos cómo el código puede controlar la energía para mover un brazo mecánico o variar la intensidad de una luz, transformando la información en una experiencia tangible.
 
@@ -18,7 +19,6 @@ En este ejercicio utilizaremos dos pines, en uno nuestro sensor y en otro pin co
 
 **Ejercicio LED PWM**
 
-
-
+<img width="667" height="537" alt="Captura de pantalla 2026-04-13 114353" src="https://github.com/user-attachments/assets/33a19eeb-a92c-4a20-8a4a-ef441bbb982f" />
 
 **Ahora es tu turno!!! complementaremos el ejercicio numero 2 haciendo que nuestras maquinas que sienten reaccionen, elige alguno de los ejercicios .ino de la carpeta y manos la obra :)**
